@@ -2,7 +2,7 @@
 Books Rest API
 
 ### Reference Documentation
-* Copy .env-example and rename it to .env
+* Copy .env-example in the root of the project and rename it to .env
 
 * Run umit test with the following command:
     ./gradlew test
