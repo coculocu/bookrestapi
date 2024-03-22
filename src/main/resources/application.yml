@@ -1,0 +1,47 @@
+server:
+  port: 9090
+  servlet:
+    context-path: /api/v1
+  error:
+    include-stacktrace: never
+    include-message: never
+spring:
+  application:
+    name: bookmngmt
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USER}
+    password: ${DB_PASS}
+    driverClassName: org.h2.Driver
+  jpa:
+    defer-datasource-initialization: true # to allow DB initialization scripts
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    hibernate:
+      ddl:
+        auto: update
+  h2:
+    console:
+      enabled: true
+  jackson:
+    default-property-inclusion: NON_NULL
+logging:
+  level:
+    org:
+      springframework:
+        web: DEBUG
+        data: DEBUG
+        security: DEBUG
+        hibernate: DEBUG
+        jpa: DEBUG
+        h2: DEBUG
+springdoc:
+  api-docs:
+    path: /api-docs
+jwt:
+  token:
+    validity: 10000
+  secret: ${JWT_SECRET}
